@@ -1,4 +1,4 @@
-# frontend
+# paper-maker-fe
 
 ## Project setup
 ```
