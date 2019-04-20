@@ -28,6 +28,6 @@ var Paper = sequelize.define('paper', {
         allowNull: false
     }
 });
-Paper.sync({force: true}); //创建表
+Paper.sync({force: false}); //创建表
 
 module.exports = Paper;

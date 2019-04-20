@@ -29,6 +29,6 @@ var User = sequelize.define('user', {
         allowNull: false
     }
 });
-User.sync({force: true}); //创建表
+User.sync({force: false}); //创建表
 
 module.exports = User;

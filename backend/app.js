@@ -7,6 +7,13 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var sqldb = require('./sqldb');
+sqldb.sequelize.sync({force: false}).then(function() {
+    console.log("Server successed to start");
+}).catch(function(err){
+    console.log("Server failed to start due to error: %s", err);
+});
+
 var app = express();
 
 // view engine setup

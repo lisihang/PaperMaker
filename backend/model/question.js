@@ -28,6 +28,6 @@ var Question = sequelize.define('question', {
         allowNull: false
     }
 });
-Question.sync({force: true}); //创建表
+Question.sync({force: false}); //创建表
 
 module.exports = Question;
