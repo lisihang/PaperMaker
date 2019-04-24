@@ -5,6 +5,8 @@ import SignIn from './views/SignIn.vue'
 import SignUp from './views/SignUp.vue'
 import menu from './components/menu.vue'
 import hi from './components/hi.vue'
+import paper_make from './views/paper_make'
+import upload from './views/up-load'
 
 Vue.use(Router)
 
@@ -25,7 +27,18 @@ export default new Router({
           path: '/hi',
           name: 'hi',
           component: hi
-        }]
+        },
+        {
+          path: '/paper_make',
+          name:'paper_make',
+          component: paper_make,
+        },
+        {
+          path: '/upload',
+          name:'upload',
+          component: upload,
+        }
+        ]
     },
     {
       path: 'signin',
