@@ -1,17 +1,14 @@
 <template>
-
-    <el-row class="tac">
-      <el-col :span="6" height="100px">
+  <div id="home">
+    <el-row class="tac" height="180px">
+      <el-col :span="6">
         <el-menu
           default-active="this.$router.path"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b"
           router>
-          <el-menu-item index="signin">
+          <el-menu-item index="info">
             <template slot="title"><i class="el-icon-info"></i>我的账户</template>
           </el-menu-item>
           <el-menu-item index="paper_make">
@@ -21,18 +18,17 @@
             <template slot="title"><i class="el-icon-upload2"></i>上传题目</template>
           </el-menu-item>
           <el-menu-item index="4">
-            <!--          <p><router-link to="/hi"></router-link></p>-->
             <template slot="title"><i class="el-icon-download"></i>下载题目</template>
           </el-menu-item>
           <el-menu-item index="5">
             <template slot="title"><i class="el-icon-search"></i>搜索</template>
           </el-menu-item>
         </el-menu>
+        <el-divider direction="vertical"></el-divider>
       </el-col>
       <router-view></router-view>
     </el-row>
-
-
+  </div>
 </template>
 
 <script>
@@ -49,5 +45,14 @@ export default {
 </script>
 
 <style scoped>
-
+.el-row {
+  background-image: url(../assets/background.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 75% 100%;
+  height: 600px
+}
+  .el-col {
+    height: 600px
+  }
 </style>

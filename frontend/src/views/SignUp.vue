@@ -1,29 +1,34 @@
 <template>
   <div class="signup">
     <el-container>
-      <el-row type="flex" justify="center">
-        <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
-          <el-form-item label="用户名" prop="name">
-            <el-input v-model="ruleForm.name" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="密码" prop="pass">
-            <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="确认密码" prop="checkPass">
-            <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')">注册</el-button>
-            <el-button @click="resetForm('ruleForm')">重置</el-button>
-          </el-form-item>
-        </el-form>
-      </el-row>
+      <el-header></el-header>
+      <el-main>
+        <img src="../assets/logo.png">
+        <el-row type="flex" justify="center" :span="18">
+          <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
+            <el-form-item label="用户名" prop="name">
+              <el-input v-model="ruleForm.name" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="pass">
+              <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="确认密码" prop="checkPass">
+              <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="submitForm('ruleForm')">注册</el-button>
+              <el-button @click="resetForm('ruleForm')">重置</el-button>
+            </el-form-item>
+          </el-form>
+        </el-row>
+      </el-main>
     </el-container>
   </div>
 
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data () {
     var checkName = (rule, value, callback) => {
@@ -74,13 +79,51 @@ export default {
     }
   },
   methods: {
+    // submitForm (formName) {
+    //   this.$refs[formName].validate((valid) => {
+    //     if (valid) {
+    //       alert('注册成功！')
+    //       this.$router.push({ name: 'SignIn' })
+    //     } else {
+    //       console.log('注册失败')
+    //       return false
+    //     }
+    //   })
+    // },
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('注册成功！')
-          this.$router.push({ name: 'SignIn' })
+          // if (this.ruleForm.name === 'a' && this.ruleForm.pass === '1') {
+          //   alert('Welcome，' + this.ruleForm.name + '!')
+          //   this.$router.push({ name: 'home' })
+          // } else {
+          //   alert('用户名或密码错误')
+          // }
+          axios.post('/signup', {
+            user: this[formName].name,
+            pass: this[formName].pass
+          })
+            .then((response) => {
+              if (response.status === 200) {
+                if (response.data.status === 'success') {
+                  // this.$store.commit('SET_TOKEN', response.data.payload.token)
+                  // this.$store.commit('GET_USER', this[formName].name)
+                  this.$message({
+                    message: '注册成功',
+                    type: 'success'
+                  })
+                  this.$router.push({ name: 'signin' })
+                } else {
+                  console.log(response.data.message)
+                  this.$refs[formName].resetFields()
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
         } else {
-          console.log('注册失败')
+          console.log('error submit!!')
           return false
         }
       })
