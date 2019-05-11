@@ -1,297 +1,223 @@
 var express = require('express');
 var router = express.Router();
 
-var User = require('../models/user');
-var Question = require('../models/question');
-var Paper = require('../models/paper');
+var models = require('../models');
+var User = models.user;
+var Question = models.question;
+var Paper = models.paper;
+
+var bodyParser = require("body-parser");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.send('hello world')
 })
 
-/* 添加user */
-router.post('/add/user',function(req,res,next){
-    console.log("+++++++++++++++++++++++");
-    var saveUser = {
-        name:req.body.username,
-        password:req.body.password
-    };
-
-    return db.sequelize.transaction(function(t){
-        console.log("+++++++++++++++++++");
-        return User.create(saveUser,{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-
-/* 添加paper */
-router.post('/add/paper',function(req,res,next){
-    console.log("+++++++++++++++++++++++");
-    var savePaper = {
-        user:req.body.user,
-        question:req.body.question
-    };
-
-    return db.sequelize.transaction(function(t){
-        console.log("+++++++++++++++++++");
-        return Paper.create(savePaper,{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-/* 添加question */
-router.post('/add/question',function(req,res,next){
-    console.log("+++++++++++++++++++++++");
-    var saveQuestion = {
-        user:req.body.user,
-        question:req.body.test
-    };
-
-    return db.sequelize.transaction(function(t){
-        console.log("+++++++++++++++++++");
-        return Question.create(saveQuestion,{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-/* 删除user */
-router.post('/delete/user',function(req,res,next){
-    console.log("--------------------");
-    return db.sequelize.transaction(function(t){
-        console.log("--------------------");
-        return User.destroy({
-            where:{
-                id:req.body.userid
-            }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-/* 删除paper */
-router.post('/delete/paper',function(req,res,next){
-    console.log("--------------------");
-    return db.sequelize.transaction(function(t){
-        console.log("--------------------");
-        return Paper.destroy({
-            where:{
-                id:req.body.paperid
-            }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-/* 删除question */
-router.post('/delete/question',function(req,res,next){
-    console.log("--------------------");
-    return db.sequelize.transaction(function(t){
-        console.log("--------------------");
-        return Question.destroy({
-            where:{
-                id:req.body.questionid
-            }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-/* 查询user */
-router.get('/get/user/:userid',function(req,res,next){
-    return db.sequelize.transaction(function(t){
-        return User.findOne({
-            where:{
-                id:req.params.userid
-            }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
+/* 注册 */
+router.post('/signup', bodyParser.json(), function(req, res, next)
+{
+    data = {};
+    data['status'] = '';
+    data['message'] = '';
+    data['payload'] = {};
+    User.findOne(
+    {
+        where:
+        {
+            username: req.body.username
+        }
+    }).then(function(result)
+    {
+        if (result == null)
+        {
+            User.create(
+            {
+                username: req.body.username,
+                password: req.body.password
+            }).then(function(result)
+            {
+                data['status'] = 'success';
+                res.json(data);
+            }).catch(function(err)
+            {
+                data['status'] = 'fail';
+                data['message'] = err.message;
+                res.json(data);
+            });
+        }
+        else
+        {
+            data['status'] = 'fail';
+            data['message'] = 'username already exists';
+            res.json(data);
+        }
+    }).catch(function(err)
+    {
+        data['status'] = 'fail';
+        data['message'] = err.message;
+        res.json(data);
     });
 });
 
-/* 查询paper */
-router.get('/get/paper/:paperid',function(req,res,next){
-    return db.sequelize.transaction(function(t){
-        return Paper.findOne({
-            where:{
-                id:req.params.paperid
-            }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
+/* 登录 */
+router.post('/signin', bodyParser.json(), function(req, res, next)
+{
+    data = {};
+    data['status'] = '';
+    data['message'] = '';
+    data['payload'] = {};
+    User.findOne(
+    {
+        where:
+        {
+            username: req.body.username,
+            password: req.body.password
+        }
+    }).then(function(result)
+    {
+        if (result == null)
+        {
+            data['status'] = 'fail';
+            data['message'] = 'username or password wrong';
+            res.json(data);
+        }
+        else
+        {
+            var token = Math.random().toString(36).substr(2);
+            User.update(
+            {
+                token: token
+            },
+            {
+                where:
+                {
+                    username: req.body.username
+                }
+            }).then(function(result)
+            {
+                data['status'] = 'success';
+                data['payload']['token'] = token;
+                res.json(data);
+            }).catch(function(err)
+            {
+                data['status'] = 'fail';
+                data['message'] = err.message;
+                res.json(data);
+            });
+        }
+    }).catch(function(err)
+    {
+        data['status'] = 'fail';
+        data['message'] = err.message;
+        res.json(data);
     });
 });
 
-/* 查询question */
-router.get('/get/question/:questionid',function(req,res,next){
-    return db.sequelize.transaction(function(t){
-        return Question.findOne({
-            where:{
-                id:req.params.questionid
-            }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
+/* 上传试题 */
+router.post('/question', bodyParser.json(), function(req, res, next)
+{
+    data = {};
+    data['status'] = '';
+    data['message'] = '';
+    data['payload'] = {};
+    User.findOne(
+    {
+        where:
+        {
+            token: req.body.token
+        }
+    }).then(function(result)
+    {
+        if (result == null)
+        {
+            data['status'] = 'fail';
+            data['message'] = 'wrong token';
+            res.json(data);
+        }
+        else
+        {
+            Question.create(
+            {
+                user: result.id,
+                content: req.body.payload.content,
+                answer: req.body.payload.answer,
+                subject: req.body.payload.subject,
+                grade: req.body.payload.grade,
+                type: req.body.payload.type,
+                difficulty: req.body.payload.difficulty,
+                time: req.body.payload.time,
+                hot: 0
+            }).then(function(result)
+            {
+                data['status'] = 'success';
+                res.json(data);
+            }).catch(function(err)
+            {
+                data['status'] = 'fail';
+                data['message'] = err.message;
+                res.json(data);
+            });
+        }
+    }).catch(function(err)
+    {
+        data['status'] = 'fail';
+        data['message'] = err.message;
+        res.json(data);
     });
 });
 
-/* 更新user/username */
-router.post('/update/user/username',function(req,res,next){
-    return db.sequelize.transaction(function(t){
-        return User.update({
-            username:req.body.username
-        },{
-           where:{
-               id:req.body.userid
-           }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
+/* 获取试题 */
+router.get('/question', function(req, res, next)
+{
+    data = {};
+    data['status'] = '';
+    data['message'] = '';
+    data['payload'] = {};
+    User.findOne(
+    {
+        where:
+        {
+            token: req.query.token
+        }
+    }).then(function(result)
+    {
+        if (result == null)
+        {
+            data['status'] = 'fail';
+            data['message'] = 'wrong token';
+            res.json(data);
+        }
+        else
+        {
+            Question.findAll(
+            {
+                where:
+                {
+                    subject: req.query.subject,
+                    grade: req.query.grade,
+                    type: req.query.type,
+                    difficulty: req.query.difficulty,
+                    time: req.query.time
+                },
+                order: [['hot', 'DESC']]
+            }).then(function(result)
+            {
+                data['status'] = 'success';
+                data['payload'] = result;
+                res.json(data);
+            }).catch(function(err)
+            {
+                data['status'] = 'fail';
+                data['message'] = err.message;
+                res.json(data);
+            });
+        }
+    }).catch(function(err)
+    {
+        data['status'] = 'fail';
+        data['message'] = err.message;
+        res.json(data);
+    });
 });
-
-/* 更新user/password */
-router.post('/update/user/password',function(req,res,next){
-    return db.sequelize.transaction(function(t){
-        return User.update({
-            password:req.body.password
-        },{
-           where:{
-               id:req.body.userid
-           }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-/* 更新paper/user */
-router.post('/update/paper/user',function(req,res,next){
-    return db.sequelize.transaction(function(t){
-        return Paper.update({
-            user:req.body.user
-        },{
-           where:{
-               id:req.body.paperid
-           }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-/* 更新paper/question */
-router.post('/update/paper/question',function(req,res,next){
-    return db.sequelize.transaction(function(t){
-        return Paper.update({
-            question:req.body.question
-        },{
-           where:{
-               id:req.body.paperid
-           }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-/* 更新question/user */
-router.post('/update/question/user',function(req,res,next){
-    return db.sequelize.transaction(function(t){
-        return Question.update({
-            user:req.body.user
-        },{
-           where:{
-               id:req.body.questionid
-           }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
-/* 更新question/test */
-router.post('/update/question/test',function(req,res,next){
-    return db.sequelize.transaction(function(t){
-        return Question.update({
-            test:req.body.test
-        },{
-           where:{
-               id:req.body.questionid
-           }
-        },{
-            transaction:t
-        }).then(function(result){
-            res.send(result);
-        }).catch(function(err){
-            console.log("发生错误：" + err);
-        });
-    })
-});
-
 
 module.exports = router;
