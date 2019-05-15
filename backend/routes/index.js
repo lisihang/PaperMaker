@@ -8,6 +8,8 @@ var Paper = models.paper;
 
 var bodyParser = require("body-parser");
 
+var paper = require('../src/paper');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.send('hello world')
@@ -16,7 +18,7 @@ router.get('/', function(req, res, next) {
 /* 注册 */
 router.post('/signup', bodyParser.json(), function(req, res, next)
 {
-    data = {};
+    var data = {};
     data['status'] = '';
     data['message'] = '';
     data['payload'] = {};
@@ -62,7 +64,7 @@ router.post('/signup', bodyParser.json(), function(req, res, next)
 /* 登录 */
 router.post('/signin', bodyParser.json(), function(req, res, next)
 {
-    data = {};
+    var data = {};
     data['status'] = '';
     data['message'] = '';
     data['payload'] = {};
@@ -169,7 +171,7 @@ router.post('/question', bodyParser.json(), function(req, res, next)
 /* 获取试题 */
 router.get('/question', function(req, res, next)
 {
-    data = {};
+    var data = {};
     data['status'] = '';
     data['message'] = '';
     data['payload'] = {};
@@ -211,6 +213,46 @@ router.get('/question', function(req, res, next)
                 data['message'] = err.message;
                 res.json(data);
             });
+        }
+    }).catch(function(err)
+    {
+        data['status'] = 'fail';
+        data['message'] = err.message;
+        res.json(data);
+    });
+});
+
+/* 组卷 */
+router.post('/paper', bodyParser.json(), function(req, res, next)
+{
+    var data = {};
+    data['status'] = '';
+    data['message'] = '';
+    data['payload'] = {};
+    if (req.body.payload.ids.length == 0)
+    {
+        data['status'] = 'fail';
+        data['message'] = 'no question ids';
+        res.json(data);
+    }
+    User.findOne(
+    {
+        where:
+        {
+            token: req.body.token
+        }
+    }).then(function(result)
+    {
+        if (result == null)
+        {
+            data['status'] = 'fail';
+            data['message'] = 'wrong token';
+            res.json(data);
+        }
+        else
+        {
+            var ids = req.body.payload.ids;
+            paper.makePaper(ids, result.id, res);
         }
     }).catch(function(err)
     {
