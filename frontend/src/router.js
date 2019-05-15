@@ -7,14 +7,8 @@ import menu from './components/menu.vue'
 import hi from './components/hi.vue'
 import paper_make from './views/paper_make'
 import upload from './views/up-load'
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Info from './views/Info.vue'
 import store from './components/store.js'
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 
 Vue.use(Router)
 
@@ -31,7 +25,6 @@ const router = new Router({
           component: SignIn
         },
         {
-<<<<<<< HEAD
           path: '/paper_make',
           name: 'paper_make',
           component: paper_make,
@@ -63,24 +56,6 @@ const router = new Router({
       ]
     }
     /*
-=======
-          path: '/hi',
-          name: 'hi',
-          component: hi
-        },
-        {
-          path: '/paper_make',
-          name:'paper_make',
-          component: paper_make,
-        },
-        {
-          path: '/upload',
-          name:'upload',
-          component: upload,
-        }
-        ]
-    },
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     {
       path: 'signin',
       name: 'signin',

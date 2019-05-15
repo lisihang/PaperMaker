@@ -32,18 +32,8 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
-<<<<<<< HEAD
     submitUpload () {
       this.$refs.upload.submit()
-=======
-    submitUpload() {
-      this.$refs.upload.submit();
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
-    submitUpload() {
-      this.$refs.upload.submit();
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     },
     handleRemove (file, fileList) {
       console.log(file, fileList)

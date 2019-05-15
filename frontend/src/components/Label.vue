@@ -1,8 +1,6 @@
 <template>
   <div>
     <el-container>
-<<<<<<< HEAD
-<<<<<<< HEAD
       <el-header></el-header>
       <el-main>
         <div class="grid-content bg-purple-light">
@@ -93,248 +91,19 @@
                   <el-radio :label="5">2015</el-radio>
                   <el-radio :label="6">更早之前</el-radio>
                 </el-radio-group>
-=======
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-      <el-main>
-        <div class="grid-content bg-purple-light">
-          <el-row>
-            <el-col :span="3">
-              <el-row type="flex" justify='start'>
-                <el-col :offset="0">
-                  <el-dropdown >
-                    <el-button  type ='text' size="small">
-                      科目<i class="el-icon-arrow-down el-icon--right"></i>
-                    </el-button>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>语文</el-dropdown-item>
-                      <el-dropdown-item>数学</el-dropdown-item>
-                      <el-dropdown-item>英语</el-dropdown-item>
-                      <el-dropdown-item>物理</el-dropdown-item>
-                      <el-dropdown-item>化学</el-dropdown-item>
-                      <el-dropdown-item>生物</el-dropdown-item>
-                      <el-dropdown-item>政治</el-dropdown-item>
-                      <el-dropdown-item>历史</el-dropdown-item>
-                      <el-dropdown-item>地理</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                <!--
-                <el-col :offset="0">
-                  <el-dropdown>
-                  <span class="el-dropdown-link">
-                    下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
-                  </span>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>黄金糕</el-dropdown-item>
-                      <el-dropdown-item>狮子头</el-dropdown-item>
-                      <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                      <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                      <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                -->
-
-              </el-row>
-            </el-col>
-            <el-col :span="3">
-              <el-row type="flex" justify='start'>
-                <el-col :offset="0">
-                  <el-dropdown >
-                    <el-button  type ='text' size="small">年级<i class="el-icon-arrow-down el-icon--right"></i>
-                    </el-button>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>小学</el-dropdown-item>
-                      <el-dropdown-item>初中</el-dropdown-item>
-                      <el-dropdown-item>高中</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                <!--
-                <el-col :offset="0">
-                  <el-dropdown>
-                  <span class="el-dropdown-link">
-                    下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
-                  </span>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>黄金糕</el-dropdown-item>
-                      <el-dropdown-item>狮子头</el-dropdown-item>
-                      <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                      <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                      <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                -->
-
-              </el-row>
-            </el-col>
-            <el-col :span="3">
-              <el-row type="flex" justify='start'>
-                <el-col :offset="0">
-                  <el-dropdown >
-                    <el-button  type ='text' size="small">难度<i class="el-icon-arrow-down el-icon--right"></i>
-                    </el-button>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>简单题</el-dropdown-item>
-                      <el-dropdown-item>中等题</el-dropdown-item>
-                      <el-dropdown-item>难题</el-dropdown-item>
-                      <el-dropdown-item>竞赛题</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                <!--
-                <el-col :offset="0">
-                  <el-dropdown>
-                  <span class="el-dropdown-link">
-                    下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
-                  </span>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>黄金糕</el-dropdown-item>
-                      <el-dropdown-item>狮子头</el-dropdown-item>
-                      <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                      <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                      <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                -->
-
-              </el-row>
-            </el-col>
-            <el-col :span="3">
-              <el-row type="flex" justify='start'>
-                <el-col :offset="0">
-                  <el-dropdown >
-                    <el-button  type ='text' size="small">
-                      地区<i class="el-icon-arrow-down el-icon--right"></i>
-                    </el-button>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>全国</el-dropdown-item>
-                      <el-dropdown-item>华东</el-dropdown-item>
-                      <el-dropdown-item>华北</el-dropdown-item>
-                      <el-dropdown-item>华南</el-dropdown-item>
-                      <el-dropdown-item>其它</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                <!--
-                <el-col :offset="0">
-                  <el-dropdown>
-                  <span class="el-dropdown-link">
-                    下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
-                  </span>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>黄金糕</el-dropdown-item>
-                      <el-dropdown-item>狮子头</el-dropdown-item>
-                      <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                      <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                      <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                -->
-
-              </el-row>
-            </el-col>
-            <el-col :span="3">
-              <el-row type="flex" justify='start'>
-                <el-col :offset="0">
-                  <el-dropdown >
-                    <el-button  type ='text' size="small">年份<i class="el-icon-arrow-down el-icon--right"></i>
-                    </el-button>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>2019</el-dropdown-item>
-                      <el-dropdown-item>2018</el-dropdown-item>
-                      <el-dropdown-item>2017</el-dropdown-item>
-                      <el-dropdown-item>2016</el-dropdown-item>
-                      <el-dropdown-item>2015</el-dropdown-item>
-                      <el-dropdown-item>更早之前</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                <!--
-                <el-col :offset="0">
-                  <el-dropdown>
-                  <span class="el-dropdown-link">
-                    下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
-                  </span>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>黄金糕</el-dropdown-item>
-                      <el-dropdown-item>狮子头</el-dropdown-item>
-                      <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                      <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                      <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                -->
-
-              </el-row>
-            </el-col>
-            <el-col :span="3">
-              <el-row type="flex" justify='start'>
-                <el-col :offset="0">
-                  <el-dropdown >
-                    <el-button  type ='text' size="small">题目来源<i class="el-icon-arrow-down el-icon--right"></i>
-                    </el-button>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>高考/中考</el-dropdown-item>
-                      <el-dropdown-item>大型模拟考</el-dropdown-item>
-                      <el-dropdown-item>竞赛</el-dropdown-item>
-                      <el-dropdown-item>其它</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                <!--
-                <el-col :offset="0">
-                  <el-dropdown>
-                  <span class="el-dropdown-link">
-                    下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
-                  </span>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>黄金糕</el-dropdown-item>
-                      <el-dropdown-item>狮子头</el-dropdown-item>
-                      <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                      <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                      <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </el-col>
-                -->
-
-<<<<<<< HEAD
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
               </el-row>
             </el-col>
           </el-row>
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <!--
         <el-button   size="mini" >学科</el-button>
         <el-button type="primary"  icon="el-icon-search" v-on:click="sendtags">上传题目</el-button>
         -->
       </el-main>
-=======
-
-      </el-main>
-
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
-
-      </el-main>
-
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     </el-container>
 
   </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 </template>
 
 <script>
@@ -389,28 +158,6 @@ export default {
     }
   }
 }
-=======
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-
-
-
-</template>
-
-<script>
-  export default {
-    name: 'label',
-    data () {
-      return {
-        checkList: ['选中且禁用', '复选框 A'],
-        value3: ''
-      }
-    }
-  }
-<<<<<<< HEAD
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 </script>
 
 <style scoped>

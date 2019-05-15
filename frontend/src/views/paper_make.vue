@@ -1,6 +1,4 @@
 <template>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <el-container style="height: 700px">
       <el-main>
         <carousel/>
@@ -13,31 +11,6 @@
 </template>
 
 <script>
-=======
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-  <el-container style="height: 700px">
-    <el-header>
-      <h1>组卷一时爽，一直组卷一直爽</h1>
-    </el-header>
-    <el-main>
-      <carousel/>
-      <choose/>
-      <sort/>
-      <paper abc="666666"/>
-
-    </el-main>
-  </el-container>
-
-</template>
-
-<script>
-
-import Menu from '../components/menu.vue'
-<<<<<<< HEAD
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 import choose from '../components/choose.vue'
 import sort from '../components/sort.vue'
 import paper from '../components/paper.vue'
@@ -45,21 +18,11 @@ import carousel from '../components/carousel'
 export default {
   name: 'paper_make',
   components: {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    Menu,
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
-    Menu,
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     choose,
     sort,
     paper,
     carousel
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
   data () {
     let src = new Array(5)
     for (let i = 0; i < 4; i++) { src[i] = '../assets/' + (i + 1) + '.jpg' }
@@ -96,25 +59,6 @@ export default {
       this.$refs.Paper.showproblems(pram)
     }
   }
-=======
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-
-  data () {
-    let src = new Array(5)
-
-    for (let i = 0; i < 4; i++) { src[i] = '../assets/' + (i + 1) + '.jpg' }
-    return {
-
-      message: src
-
-    }
-  }
-
-<<<<<<< HEAD
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 }
 </script>
 
@@ -123,16 +67,8 @@ export default {
     /*background-color: #B3C0D1;
     color: #333;*/
     text-align: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-top: 10px;
     margin-bottom: 20px;
-=======
-    margin-top: 1px;
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
-    margin-top: 1px;
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     line-height: 1px;
   }
   .el-main{
@@ -145,8 +81,6 @@ export default {
     margin: 0;
 
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
   *{
     margin: 0 ;
     padding: 0;
@@ -167,8 +101,4 @@ export default {
     line-height: 30px;
     height: 40px;
   }
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
-=======
->>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 </style>
