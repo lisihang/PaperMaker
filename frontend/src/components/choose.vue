@@ -182,7 +182,7 @@ export default {
       var _this = this
       _this.tags = { subject: this.checkList1[0], grade: this.checkList2[0], type: this.checkList3[0], difficulty: this.checkList4[0], time: this.checkList5[0] }
       console.log(_this.tags)
-      this.$emit('transtag', _this.tags )
+      this.$emit('transtag', _this.tags)
     }
   }
 }

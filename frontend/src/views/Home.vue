@@ -42,7 +42,7 @@
 import swing from '../components/swing'
 import textrotation from '../components/TestRotation'
 export default {
-  components: { swing, textrotation},
+  components: { swing, textrotation },
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath)

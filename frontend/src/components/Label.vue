@@ -11,15 +11,15 @@
             <el-col :span="23">
               <el-row type="flex" justify='start'>
                 <el-radio-group v-model="radio1">
-                  <el-radio :label="1" size="mini" border="ture">语文</el-radio>
-                  <el-radio :label="2" size="mini" border="ture">数学</el-radio>
-                  <el-radio :label="3" size="mini" border="ture">英语</el-radio>
-                  <el-radio :label="4" size="mini" border="ture">物理</el-radio>
-                  <el-radio :label="5" size="mini" border="ture">化学</el-radio>
-                  <el-radio :label="6" size="mini" border="ture">生物</el-radio>
-                  <el-radio :label="7" size="mini" border="ture">政治</el-radio>
-                  <el-radio :label="8" size="mini" border="ture">历史</el-radio>
-                  <el-radio :label="9" size="mini" border="ture">地理</el-radio>
+                  <el-radio :label="1" size="mini" border=ture>语文</el-radio>
+                  <el-radio :label="2" size="mini" border=ture>数学</el-radio>
+                  <el-radio :label="3" size="mini" border=ture>英语</el-radio>
+                  <el-radio :label="4" size="mini" border=ture>物理</el-radio>
+                  <el-radio :label="5" size="mini" border=ture>化学</el-radio>
+                  <el-radio :label="6" size="mini" border=ture>生物</el-radio>
+                  <el-radio :label="7" size="mini" border=ture>政治</el-radio>
+                  <el-radio :label="8" size="mini" border=ture>历史</el-radio>
+                  <el-radio :label="9" size="mini" border=ture>地理</el-radio>
                 </el-radio-group>
               </el-row>
             </el-col>

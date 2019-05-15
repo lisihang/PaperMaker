@@ -74,7 +74,7 @@ export default {
         method: 'get',
         url: '/question',
         params: {
-          token: 'ob3o2hj5yz',
+          token: '1n0t3rggrpf',
           subject: subject,
           grade: grade,
           type: type,
