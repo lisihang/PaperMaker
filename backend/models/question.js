@@ -12,8 +12,36 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    test: {
+    content: {
         type: DataTypes.TEXT,
+        allowNull: false
+    },
+    answer: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    subject: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    grade: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    type: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    difficulty: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    time: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    hot: {
+        type: DataTypes.INTEGER,
         allowNull: false
     }
   }, {});
