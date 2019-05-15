@@ -2,17 +2,23 @@
     <el-container>
       <el-main>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <el-card class="box-card" v-for="problem in problems">
           <problem :content='problem.content' :answer='problem.answer' :diff="problem.difficulty"/>
         </el-card>
         <!--
         <el-card class="box-card" v-for="music in musics">
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 
         <el-card class="box-card">
           <problem/>
         </el-card>
         <!--
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
         <el-card class="box-card">
           <div>{{abc}}</div>
@@ -33,7 +39,11 @@
 <script>
 import problem from './problem.vue'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import axios from 'axios'
+=======
+/* import problem from "./problem"; */
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
 /* import problem from "./problem"; */
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
@@ -42,6 +52,7 @@ export default {
   components: {
     problem
   },
+<<<<<<< HEAD
 <<<<<<< HEAD
   props: ['tags'],
   /*
@@ -137,6 +148,10 @@ export default {
 }
 // Make a request for a user with a given ID
 
+=======
+  props: ['abc']
+}
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
   props: ['abc']
 }

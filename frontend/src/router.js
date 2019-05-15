@@ -8,8 +8,11 @@ import hi from './components/hi.vue'
 import paper_make from './views/paper_make'
 import upload from './views/up-load'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Info from './views/Info.vue'
 import store from './components/store.js'
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 

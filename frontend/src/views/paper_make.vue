@@ -1,5 +1,6 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <el-container style="height: 700px">
       <el-main>
         <carousel/>
@@ -13,6 +14,8 @@
 
 <script>
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
   <el-container style="height: 700px">
     <el-header>
       <h1>组卷一时爽，一直组卷一直爽</h1>
@@ -31,6 +34,9 @@
 <script>
 
 import Menu from '../components/menu.vue'
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 import choose from '../components/choose.vue'
 import sort from '../components/sort.vue'
@@ -40,6 +46,10 @@ export default {
   name: 'paper_make',
   components: {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    Menu,
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
     Menu,
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
@@ -48,6 +58,7 @@ export default {
     paper,
     carousel
   },
+<<<<<<< HEAD
 <<<<<<< HEAD
   data () {
     let src = new Array(5)
@@ -86,6 +97,8 @@ export default {
     }
   }
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 
   data () {
     let src = new Array(5)
@@ -98,6 +111,9 @@ export default {
     }
   }
 
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 }
 </script>
@@ -108,8 +124,12 @@ export default {
     color: #333;*/
     text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-top: 10px;
     margin-bottom: 20px;
+=======
+    margin-top: 1px;
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
     margin-top: 1px;
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
@@ -125,6 +145,7 @@ export default {
     margin: 0;
 
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
   *{
     margin: 0 ;
@@ -146,6 +167,8 @@ export default {
     line-height: 30px;
     height: 40px;
   }
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 </style>

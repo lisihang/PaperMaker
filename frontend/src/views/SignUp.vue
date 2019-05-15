@@ -2,6 +2,7 @@
   <div class="signup">
     <el-container>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <el-header></el-header>
       <el-main>
         <img src="../assets/logo.png">
@@ -24,6 +25,8 @@
         </el-row>
       </el-main>
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
       <el-row type="flex" justify="center">
         <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
           <el-form-item label="用户名" prop="name">
@@ -41,6 +44,9 @@
           </el-form-item>
         </el-form>
       </el-row>
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     </el-container>
   </div>

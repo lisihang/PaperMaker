@@ -1,10 +1,13 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div >
       <pre align="left" width="40">{{content}}<br><br>{{answer}}</pre>
       <hr/>
       <p id="other_prams">难度系数:0.3</p>
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     <div>
       <p align="left">1.某蛋白质由m条肽链、n个氨基酸组成。该蛋白质至少有氧原子的个数是(    )</p>
       <p align="left">A．n－m                            B．n－2m</p>
@@ -18,11 +21,15 @@
         难度系数：0.5
         使用次数：0次     题型：单选题     更新：2019/4/20
       </p>
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 <<<<<<< HEAD
 export default {
   name: 'Problem',
@@ -31,6 +38,8 @@ export default {
     return {
       activeName: '1'
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 
 export default {
   name: 'Problem',
@@ -38,6 +47,9 @@ export default {
     return {
       activeName: '1'
 
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     }
   }
@@ -46,6 +58,7 @@ export default {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 <<<<<<< HEAD
   .p-left{float:left}
   div
@@ -59,6 +72,10 @@ export default {
     font-size: 10px;
     text-align: left ;
   }
+=======
+  .div-left{float:left}
+  .p-left{float:left}
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
   .div-left{float:left}
   .p-left{float:left}

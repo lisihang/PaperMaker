@@ -2,6 +2,7 @@
   <div>
     <el-container>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <el-header></el-header>
       <el-main>
         <div class="grid-content bg-purple-light">
@@ -13,6 +14,8 @@
               <el-row type="flex" justify='start'>
                 <el-checkbox-group v-model="checkList1">
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
       <el-main>
         <div class="grid-content bg-purple-light">
           <el-row  :offset="0" >
@@ -22,6 +25,9 @@
             <el-col :span="20">
               <el-row type="flex" justify='start'>
                 <el-checkbox-group v-model="checkList">
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
                   <el-checkbox label="语文" border size="small" ></el-checkbox>
                   <el-checkbox label="数学" border size="small"></el-checkbox>
@@ -40,7 +46,12 @@
         <div class="grid-content bg-purple-light">
           <el-row :offset="0" >
 <<<<<<< HEAD
+<<<<<<< HEAD
             <el-col :span="1">
+=======
+
+            <el-col :span="3">
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
 
             <el-col :span="3">
@@ -50,7 +61,12 @@
             <el-col :span="20">
               <el-row :offset="0" type="flex" justify='start'>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <el-checkbox-group v-model="checkList2">
+=======
+                <el-checkbox-group v-model="checkList">
+                  <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
                 <el-checkbox-group v-model="checkList">
                   <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
@@ -65,6 +81,7 @@
         </div>
         <div class="grid-content bg-purple-light">
           <el-row :offset="0">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <el-col :span="1">
               <el-button type="text" size="small" >题型</el-button>
@@ -88,12 +105,19 @@
 =======
             <el-col :span="3">
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
+            <el-col :span="3">
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
               <el-button type="text" size="small" >难度</el-button>
             </el-col>
             <el-col :span="20">
               <el-row :offset="0" type="flex" justify='start'>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <el-checkbox-group v-model="checkList4">
+=======
+                <el-checkbox-group v-model="checkList">
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
                 <el-checkbox-group v-model="checkList">
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
@@ -106,6 +130,7 @@
             </el-col>
           </el-row>
         </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <div class="grid-content bg-purple-light">
           <el-row :offset="0">
@@ -128,13 +153,19 @@
         </div>
 =======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
             <!--
             <el-button   size="mini" >学科</el-button>
             -->
         <div class="grid-content bg-purple-light">
             <el-row>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <el-col :span="1">
+=======
+              <el-col :span="3">
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
               <el-col :span="3">
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
@@ -157,7 +188,10 @@
                     </el-dropdown>
                   </el-col>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
                   <!--
                   <el-col :offset="0">
                     <el-dropdown>
@@ -210,6 +244,9 @@
                   </el-col>
                   -->
 
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
                 </el-row>
               </el-col>
@@ -249,8 +286,14 @@
             </el-row>
           </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <el-button type="primary"  icon="el-icon-search" v-on:click="sendtags">获取题目</el-button>
       </el-main>
+=======
+
+      </el-main>
+
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
 
       </el-main>
@@ -265,6 +308,7 @@
 <script>
 export default {
   name: 'choose',
+<<<<<<< HEAD
 <<<<<<< HEAD
   data () {
     return {
@@ -283,11 +327,16 @@ export default {
       console.log(_this.tags)
       this.$emit('transtag', _this.tags )
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
   cities: ['city1', 'city2'],
   data () {
     return {
       checkList: ['选中且禁用', '复选框 A'],
       value3: ''
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     }
   }

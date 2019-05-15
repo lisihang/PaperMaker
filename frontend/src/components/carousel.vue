@@ -3,11 +3,16 @@
   <div class="carousel">
     <div class="block">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <el-carousel :interval="4000" type="card" height="200px" >
         <el-carousel-item v-for="pic in pics">
           <img :src= pic height="100%"/>
         </el-carousel-item>
         <!---
+=======
+
+      <el-carousel :interval="4000" type="card" height="200px">
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
 
       <el-carousel :interval="4000" type="card" height="200px">
@@ -25,7 +30,10 @@
           <img src="../assets/4.jpg"   height="100%"/>
         </el-carousel-item>
 <<<<<<< HEAD
+<<<<<<< HEAD
         --->
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
       </el-carousel>
@@ -40,15 +48,21 @@ export default {
   data () {
     let src = new Array(5)
 <<<<<<< HEAD
+<<<<<<< HEAD
     return {
       pics: [require('../assets/1.jpg'), require('../assets/2.jpg'), require('../assets/3.jpg'), require('../assets/4.jpg'), require('../assets/5.jpg'), ],
       message: src,
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 
     for (let i = 0; i < 4; i++) { src[i] = './assets/' + (i + 1) + '.jpg' }
     return {
 
       message: src
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 
     }

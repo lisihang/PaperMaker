@@ -2,6 +2,7 @@
   <div>
     <el-container>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <el-header></el-header>
       <el-main>
         <div class="grid-content bg-purple-light">
@@ -93,6 +94,8 @@
                   <el-radio :label="6">更早之前</el-radio>
                 </el-radio-group>
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
       <el-main>
         <div class="grid-content bg-purple-light">
           <el-row>
@@ -301,11 +304,15 @@
                 </el-col>
                 -->
 
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
               </el-row>
             </el-col>
           </el-row>
         </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <!--
         <el-button   size="mini" >学科</el-button>
@@ -317,10 +324,16 @@
       </el-main>
 
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
+
+      </el-main>
+
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
     </el-container>
 
   </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 </template>
 
@@ -377,6 +390,8 @@ export default {
   }
 }
 =======
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 
 
 
@@ -392,6 +407,9 @@ export default {
       }
     }
   }
+<<<<<<< HEAD
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
+=======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 </script>
 

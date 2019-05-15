@@ -15,9 +15,12 @@
             </el-form-item>
             <el-form-item>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <a @click="$router.push('/signup')"> 新用户？</a>
             </el-form-item>
             <el-form-item>
+=======
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
 >>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
               <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
@@ -29,6 +32,11 @@
     </el-container>
   </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7b176e297a2198062c253ceb69619c1f64877617
 =======
 
 
