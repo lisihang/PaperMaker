@@ -1,11 +1,11 @@
 <template>
     <el-container>
       <el-main>
-
-        <el-card class="box-card">
-          <problem/>
+        <el-card class="box-card" v-for="problem in problems">
+          <problem :content='problem.content' :answer='problem.answer' :diff="problem.difficulty"/>
         </el-card>
         <!--
+        <el-card class="box-card" v-for="music in musics">
         <el-card class="box-card">
           <div>{{abc}}</div>
           <problem/>
@@ -24,14 +24,106 @@
 
 <script>
 import problem from './problem.vue'
-/* import problem from "./problem"; */
+import axios from 'axios'
 export default {
   name: 'paper',
   components: {
     problem
   },
-  props: ['abc']
+  props: ['tags'],
+  /*
+  mounted: {
+    showproblems (pram) {
+      var _this = this
+      axios.get(API_PROXY + 'http://148.70.254.200:3000/question', {
+        params: {
+          token: 'jrqa5qi1ylb',
+          subject: pram.subject,
+          grade: pram.grade,
+          type: pram.type,
+          difficulty: pram.difficulty,
+          time: pram.time
+        }
+      })
+        .then(function (response) {
+          console.log(response)
+          console.log(response.data.payload[0].id)
+          _this.content = response.data.payload[0].content
+          _this.answer = response.data.payload[0].answer
+          _this.problems = response.data.payload
+        }, function (error) {
+          console.log(error)
+        })
+      .catch(function (error) {
+        console.log(error)
+      })
+    }
+  },
+  */
+  methods: {
+    showproblems: function (pram) {
+      console.log(pram.subject.toString())
+      console.log(pram)
+      var _this = this
+      var subject = pram.subject.toString()
+      var grade = pram.grade.toString()
+      var type = pram.type.toString()
+      var difficulity = pram.difficulty.toString()
+      var time = pram.time.toString()
+      axios({
+        method: 'get',
+        url: '/question',
+        params: {
+          token: '1n0t3rggrpf',
+          subject: subject,
+          grade: grade,
+          type: type,
+          difficulty: difficulity,
+          time: time
+          /*
+          subject: pram.subject.toString(),
+          grade: pram.grade.toString(),
+          type: pram.type.toString(),
+          difficulty: pram.difficulty.toString(),
+          time: pram.time.toString()
+          /*
+          subject: '生物',
+          grade: '高一',
+          type: '选择题',
+          difficulty: '1',
+          time: '2019'
+          */
+        }
+      })
+        .then(function (response) {
+          /*
+          console.log(response)
+          console.log(response.data.payload[0].id)
+          _this.content = response.data.payload[0].content
+          _this.answer = response.data.payload[0].answer
+          */
+          _this.problems = response.data.payload
+        }, function (error) {
+          console.log(error)
+        })
+      /*
+      .catch(function (error) {
+        console.log(error)
+      })
+      */
+    }
+  },
+  data () {
+    return {
+      musics: [],
+      content: '',
+      answer: '',
+      problems: []
+    }
+  }
 }
+// Make a request for a user with a given ID
+
 </script>
 
 <style scoped>

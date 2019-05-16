@@ -2,8 +2,11 @@
 
   <div class="carousel">
     <div class="block">
-
-      <el-carousel :interval="4000" type="card" height="200px">
+      <el-carousel :interval="4000" type="card" height="200px" >
+        <el-carousel-item v-for="pic in pics">
+          <img :src= pic height="100%"/>
+        </el-carousel-item>
+        <!---
         <el-carousel-item >
           <img src="../assets/1.jpg"   height="100%"/>
         </el-carousel-item>
@@ -16,6 +19,7 @@
         <el-carousel-item >
           <img src="../assets/4.jpg"   height="100%"/>
         </el-carousel-item>
+        --->
       </el-carousel>
     </div>
   </div>
@@ -27,10 +31,8 @@ export default {
   name: 'carousel',
   data () {
     let src = new Array(5)
-
-    for (let i = 0; i < 4; i++) { src[i] = './assets/' + (i + 1) + '.jpg' }
     return {
-
+      pics: [require('../assets/1.jpg'), require('../assets/2.jpg'), require('../assets/3.jpg'), require('../assets/4.jpg'), require('../assets/5.jpg') ],
       message: src
 
     }

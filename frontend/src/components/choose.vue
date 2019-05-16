@@ -1,15 +1,16 @@
 <template>
   <div>
     <el-container>
+      <el-header></el-header>
       <el-main>
         <div class="grid-content bg-purple-light">
           <el-row  :offset="0" >
-            <el-col :span="3">
+            <el-col :span="1">
               <el-button type="text" size="mini" >科目</el-button>
             </el-col>
-            <el-col :span="20">
+            <el-col :span="23">
               <el-row type="flex" justify='start'>
-                <el-checkbox-group v-model="checkList">
+                <el-checkbox-group v-model="checkList1">
                   <el-checkbox label="语文" border size="small" ></el-checkbox>
                   <el-checkbox label="数学" border size="small"></el-checkbox>
                   <el-checkbox label="英语" border size="small"></el-checkbox>
@@ -26,14 +27,12 @@
         </div>
         <div class="grid-content bg-purple-light">
           <el-row :offset="0" >
-
-            <el-col :span="3">
+            <el-col :span="1">
               <el-button type="text" size="mini" >年级</el-button>
             </el-col>
             <el-col :span="20">
               <el-row :offset="0" type="flex" justify='start'>
-                <el-checkbox-group v-model="checkList">
-                  <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                <el-checkbox-group v-model="checkList2">
                   <el-checkbox label="小学" border size="small" ></el-checkbox>
                   <el-checkbox label="初中" border size="small"></el-checkbox>
                   <el-checkbox label="高中" border size="small"></el-checkbox>
@@ -44,16 +43,53 @@
         </div>
         <div class="grid-content bg-purple-light">
           <el-row :offset="0">
-            <el-col :span="3">
+            <el-col :span="1">
+              <el-button type="text" size="small" >题型</el-button>
+            </el-col>
+            <el-col :span="20">
+              <el-row :offset="0" type="flex" justify='start'>
+                <el-checkbox-group v-model="checkList3">
+                  <el-checkbox label="选择题" border size="small" ></el-checkbox>
+                  <el-checkbox label="填空题" border size="small"></el-checkbox>
+                  <el-checkbox label="计算题" border size="small"></el-checkbox>
+                  <el-checkbox label="简答题" border size="small"></el-checkbox>
+                  <el-checkbox label="作图题" border size="small"></el-checkbox>
+                </el-checkbox-group>
+              </el-row>
+            </el-col>
+          </el-row>
+        </div>
+        <div class="grid-content bg-purple-light">
+          <el-row :offset="0">
+            <el-col :span="1">
               <el-button type="text" size="small" >难度</el-button>
             </el-col>
             <el-col :span="20">
               <el-row :offset="0" type="flex" justify='start'>
-                <el-checkbox-group v-model="checkList">
+                <el-checkbox-group v-model="checkList4">
                   <el-checkbox label="简单题" border size="small" ></el-checkbox>
                   <el-checkbox label="中等题" border size="small"></el-checkbox>
                   <el-checkbox label="难题" border size="small"></el-checkbox>
                   <el-checkbox label="竞赛题" border size="small"></el-checkbox>
+                </el-checkbox-group>
+              </el-row>
+            </el-col>
+          </el-row>
+        </div>
+        <div class="grid-content bg-purple-light">
+          <el-row :offset="0">
+            <el-col :span="1">
+              <el-button type="text" size="small" >年份</el-button>
+            </el-col>
+            <el-col :span="20">
+              <el-row :offset="0" type="flex" justify='start'>
+                <el-checkbox-group v-model="checkList5">
+                  <el-checkbox label="2019" border size="small" ></el-checkbox>
+                  <el-checkbox label="2018" border size="small"></el-checkbox>
+                  <el-checkbox label="2017" border size="small"></el-checkbox>
+                  <el-checkbox label="2016" border size="small"></el-checkbox>
+                  <el-checkbox label="2015" border size="small"></el-checkbox>
+                  <el-checkbox label="更早之前" border size="small"></el-checkbox>
                 </el-checkbox-group>
               </el-row>
             </el-col>
@@ -64,7 +100,7 @@
             -->
         <div class="grid-content bg-purple-light">
             <el-row>
-              <el-col :span="3">
+              <el-col :span="1">
                 <el-button type="text" size="mini" >更多</el-button>
               </el-col>
               <el-col :span="5">
@@ -83,58 +119,6 @@
                       </el-dropdown-menu>
                     </el-dropdown>
                   </el-col>
-                  <!--
-                  <el-col :offset="0">
-                    <el-dropdown>
-                    <span class="el-dropdown-link">
-                      下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
-                    </span>
-                      <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>黄金糕</el-dropdown-item>
-                        <el-dropdown-item>狮子头</el-dropdown-item>
-                        <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                        <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                        <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                      </el-dropdown-menu>
-                    </el-dropdown>
-                  </el-col>
-                  -->
-
-                </el-row>
-              </el-col>
-              <el-col :span="5">
-                <el-row type="flex" justify='start'>
-                  <el-col :offset="0">
-                    <el-dropdown >
-                      <el-button  type ='text' size="small">年份<i class="el-icon-arrow-down el-icon--right"></i>
-                      </el-button>
-                      <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>2019</el-dropdown-item>
-                        <el-dropdown-item>2018</el-dropdown-item>
-                        <el-dropdown-item>2017</el-dropdown-item>
-                        <el-dropdown-item>2016</el-dropdown-item>
-                        <el-dropdown-item>2015</el-dropdown-item>
-                        <el-dropdown-item>更早之前</el-dropdown-item>
-                      </el-dropdown-menu>
-                    </el-dropdown>
-                  </el-col>
-                  <!--
-                  <el-col :offset="0">
-                    <el-dropdown>
-                    <span class="el-dropdown-link">
-                      下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
-                    </span>
-                      <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>黄金糕</el-dropdown-item>
-                        <el-dropdown-item>狮子头</el-dropdown-item>
-                        <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                        <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                        <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                      </el-dropdown-menu>
-                    </el-dropdown>
-                  </el-col>
-                  -->
-
                 </el-row>
               </el-col>
               <el-col :span="5">
@@ -172,9 +156,8 @@
               </el-col>
             </el-row>
           </div>
-
+        <el-button type="primary"  icon="el-icon-search" v-on:click="sendtags">获取题目</el-button>
       </el-main>
-
     </el-container>
 
   </div>
@@ -184,11 +167,22 @@
 <script>
 export default {
   name: 'choose',
-  cities: ['city1', 'city2'],
   data () {
     return {
-      checkList: ['选中且禁用', '复选框 A'],
-      value3: ''
+      checkList1: ['生物'],
+      checkList2: ['高中'],
+      checkList3: ['选择题'],
+      checkList4: ['中等题'],
+      checkList5: ['2019'],
+      tags: {}
+    }
+  },
+  methods: {
+    sendtags () {
+      var _this = this
+      _this.tags = { subject: this.checkList1[0], grade: this.checkList2[0], type: this.checkList3[0], difficulty: this.checkList4[0], time: this.checkList5[0] }
+      console.log(_this.tags)
+      this.$emit('transtag', _this.tags)
     }
   }
 }

@@ -14,6 +14,9 @@
               <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item>
+              <a @click="$router.push('/signup')"> 新用户？</a>
+            </el-form-item>
+            <el-form-item>
               <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
               <el-button @click="resetForm('ruleForm')">重置</el-button>
             </el-form-item>
@@ -22,10 +25,10 @@
       </el-main>
     </el-container>
   </div>
-
-
 </template>
 <script>
+import axios from 'axios'
+const API_PROXY = 'https://bird.ioliu.cn/v1/?url='
 export default {
   data: function () {
     var validatePass = (rule, value, callback) => {
@@ -65,12 +68,46 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          if (this.ruleForm.name === 'a' && this.ruleForm.pass === '1') {
-            alert('Welcome，' + this.ruleForm.name + '!')
-            this.$router.push({ name: 'menu' })
-          } else {
-            alert('用户名或密码错误')
-          }
+          // if (this.ruleForm.name === 'a' && this.ruleForm.pass === '1') {
+          //   alert('Welcome，' + this.ruleForm.name + '!')
+          //   this.$router.push({ name: 'home' })
+          // } else {
+          //   alert('用户名或密码错误')
+          // }
+          // this.$store.commit('SET_TOKEN', 'a')
+          // this.$store.commit('GET_USER', 'a')
+          // this.$message({
+          //   message: '登陆成功',
+          //   type: 'success'
+          // })
+          // this.$router.push({ name: 'home' })
+          axios({
+            method: 'post',
+            url: '/signin',
+            data: {
+              username: this[formName].name,
+              password: this[formName].pass
+            }
+          })
+            .then((response) => {
+              if (response.status === 200) {
+                if (response.data.status === 'success') {
+                  this.$store.commit('SET_TOKEN', response.data.payload.token)
+                  this.$store.commit('GET_USER', this[formName].name)
+                  this.$message({
+                    message: '登陆成功',
+                    type: 'success'
+                  })
+                  this.$router.push({ name: 'home' })
+                } else {
+                  console.log(response.data.message)
+                  this.$refs[formName].resetFields()
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
         } else {
           console.log('error submit!!')
           return false

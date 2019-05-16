@@ -1,24 +1,29 @@
 <template>
     <el-container>
+      <el-header></el-header>
       <el-main>
-        <Label/>
-        <Upload/>
+        <Label ref = "label"></Label>
+        <Input @sendtags="sendtags"/>
       </el-main>
+
     </el-container>
 </template>
 
 <script>
-  import Upload from '../components/Upload'
-  import choose from '../components/choose'
-  import Label from '../components/Label'
-    export default {
-        name: "up-load",
-        components:{
-          Upload,
-          choose,
-          Label,
-        }
+import Label from '../components/Label'
+import Input from '../components/Input'
+export default {
+  name: 'up-load',
+  components: {
+    Label,
+    Input
+  },
+  methods: {
+    sendtags: function (params) {
+      this.$refs.label.sendTags(params)
     }
+  }
+}
 </script>
 
 <style scoped>
