@@ -3,12 +3,12 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import SignIn from './views/SignIn.vue'
 import SignUp from './views/SignUp.vue'
-import menu from './components/menu.vue'
-import hi from './components/hi.vue'
-import paper_make from './views/paper_make'
+import PaperMake from './views/PaperMake'
 import upload from './views/up-load'
 import Info from './views/Info.vue'
 import store from './components/store.js'
+import ShoppingCart from './views/ShoppingCart'
+import ComposePaper from './components/ComposePaper'
 
 Vue.use(Router)
 
@@ -20,14 +20,35 @@ const router = new Router({
       component: Home,
       children: [
         {
+          path: '/',
+          name: 'signin',
+          component: SignIn
+        },
+        {
           path: '/signin',
           name: 'signin',
           component: SignIn
         },
         {
-          path: '/paper_make',
-          name: 'paper_make',
-          component: paper_make,
+          path: '/papermake',
+          name: 'PaperMake',
+          component: PaperMake,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: '/shoppingcart',
+          name: 'ShoppingCart',
+          component: ShoppingCart,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: '/composepaper',
+          name: 'composepaper',
+          component: ComposePaper,
           meta: {
             requireAuth: true
           }

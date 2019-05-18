@@ -2,22 +2,9 @@
     <el-container>
       <el-main>
         <el-card class="box-card" v-for="problem in problems">
-          <problem :content='problem.content' :answer='problem.answer' :diff="problem.difficulty"/>
+          <problem :content='problem.content' :answer='problem.answer'
+                   :diff="problem.difficulty" :id ="problem.id" :type ="problem.type" :hot ="problem.hot" :time ="problem.time" ref ='problem'/>
         </el-card>
-        <!--
-        <el-card class="box-card" v-for="music in musics">
-        <el-card class="box-card">
-          <div>{{abc}}</div>
-          <problem/>
-        </el-card>
-        <el-card class="box-card">
-          <problem/>
-        </el-card>
-        <el-card class="box-card">
-          <problem/>
-        </el-card>
-        --->
-
       </el-main>
     </el-container>
 </template>
@@ -25,45 +12,26 @@
 <script>
 import problem from './problem.vue'
 import axios from 'axios'
+import Bus from '../bus'
 export default {
   name: 'paper',
   components: {
     problem
   },
   props: ['tags'],
-  /*
-  mounted: {
-    showproblems (pram) {
-      var _this = this
-      axios.get(API_PROXY + 'http://148.70.254.200:3000/question', {
-        params: {
-          token: 'jrqa5qi1ylb',
-          subject: pram.subject,
-          grade: pram.grade,
-          type: pram.type,
-          difficulty: pram.difficulty,
-          time: pram.time
-        }
-      })
-        .then(function (response) {
-          console.log(response)
-          console.log(response.data.payload[0].id)
-          _this.content = response.data.payload[0].content
-          _this.answer = response.data.payload[0].answer
-          _this.problems = response.data.payload
-        }, function (error) {
-          console.log(error)
-        })
-      .catch(function (error) {
-        console.log(error)
-      })
-    }
+  mounted: function () {
+    var _this = this
+    Bus.$on('addtocart', (data) => {
+      _this.shoppingcart.push(data)
+      console.log(data)
+      console.log(_this.shoppingcart)
+    })
   },
-  */
   methods: {
     showproblems: function (pram) {
       console.log(pram.subject.toString())
       console.log(pram)
+      console.log(window.sessionStorage.getItem('token'))
       var _this = this
       var subject = pram.subject.toString()
       var grade = pram.grade.toString()
@@ -74,43 +42,20 @@ export default {
         method: 'get',
         url: '/question',
         params: {
-          token: '1n0t3rggrpf',
+          token: window.sessionStorage.getItem('token'),
           subject: subject,
           grade: grade,
           type: type,
           difficulty: difficulity,
           time: time
-          /*
-          subject: pram.subject.toString(),
-          grade: pram.grade.toString(),
-          type: pram.type.toString(),
-          difficulty: pram.difficulty.toString(),
-          time: pram.time.toString()
-          /*
-          subject: '生物',
-          grade: '高一',
-          type: '选择题',
-          difficulty: '1',
-          time: '2019'
-          */
         }
       })
         .then(function (response) {
-          /*
-          console.log(response)
-          console.log(response.data.payload[0].id)
-          _this.content = response.data.payload[0].content
-          _this.answer = response.data.payload[0].answer
-          */
           _this.problems = response.data.payload
+          console.log(response.data.payload)
         }, function (error) {
           console.log(error)
         })
-      /*
-      .catch(function (error) {
-        console.log(error)
-      })
-      */
     }
   },
   data () {
@@ -118,7 +63,8 @@ export default {
       musics: [],
       content: '',
       answer: '',
-      problems: []
+      problems: [],
+      shoppingcart: []
     }
   }
 }

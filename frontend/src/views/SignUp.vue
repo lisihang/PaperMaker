@@ -102,7 +102,7 @@ export default {
           axios({
             method: 'post',
             url: '/signup',
-            params: {
+            data: {
               username: this[formName].name,
               password: this[formName].pass
             }

@@ -28,7 +28,6 @@
 </template>
 <script>
 import axios from 'axios'
-const API_PROXY = 'https://bird.ioliu.cn/v1/?url='
 export default {
   data: function () {
     var validatePass = (rule, value, callback) => {
@@ -100,16 +99,16 @@ export default {
                   })
                   this.$router.push({ name: 'home' })
                 } else {
-                  console.log(response.data.message)
+                  this.$message(response.data.message)
                   this.$refs[formName].resetFields()
                 }
               }
             })
             .catch(function (error) {
-              console.log(error)
+              this.$message(error)
             })
         } else {
-          console.log('error submit!!')
+          this.$message('error submit!!')
           return false
         }
       })

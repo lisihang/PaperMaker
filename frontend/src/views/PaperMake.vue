@@ -16,7 +16,7 @@ import sort from '../components/sort.vue'
 import paper from '../components/paper.vue'
 import carousel from '../components/carousel'
 export default {
-  name: 'paper_make',
+  name: 'PaperMake',
   components: {
     choose,
     sort,

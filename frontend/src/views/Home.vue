@@ -11,9 +11,17 @@
           <el-menu-item index="info">
             <template slot="title"><i class="el-icon-info"></i>首页</template>
           </el-menu-item>
-          <el-menu-item index="paper_make">
-            <template slot="title"><i class="el-icon-menu"></i>浏览题库</template>
-          </el-menu-item>
+          <el-submenu index="paper">
+            <template slot="title">
+              <i class="el-icon-document-add"></i>
+              <span>组卷</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="papermake">浏览题库</el-menu-item>
+              <el-menu-item index="shoppingcart">试题篮</el-menu-item>
+              <el-menu-item index="composepaper">组合试卷</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
           <el-menu-item index="upload">
             <template slot="title"><i class="el-icon-upload2"></i>上传题目</template>
           </el-menu-item>
