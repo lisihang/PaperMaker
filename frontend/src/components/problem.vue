@@ -34,6 +34,20 @@ export default {
       console.log(JSON.parse(JSON.stringify((_this.problem))))
       Bus.$emit('addtocart', _this.problem)
       this.$store.commit('AddShoppingCart', _this.problem)
+    },
+    addtoup: function () {
+      var _this = this
+      _this.problem = {
+        content: this.content,
+        answer: this.answer,
+        diff: this.diff,
+        id: this.id,
+        type: this.type,
+        hot: this.hot,
+        time: this.time }
+      console.log(JSON.parse(JSON.stringify((_this.problem))))
+      Bus.$emit('addtoup', _this.problem)
+      this.$store.commit('SetUphistory', _this.problem)
     }
   }
 

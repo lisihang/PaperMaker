@@ -51,7 +51,7 @@
     </el-table>
     <el-button v-on:click="getpaper">
       一键组卷
-    </el-button>
+  </el-button>
   </el-container>
 
 </template>

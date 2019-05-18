@@ -9,7 +9,7 @@
           @close="handleClose"
           router>
           <el-menu-item index="info">
-            <template slot="title"><i class="el-icon-info"></i>首页</template>
+            <template slot="title"><i class="el-icon-info"></i>我的账户</template>
           </el-menu-item>
           <el-submenu index="paper">
             <template slot="title">
@@ -35,12 +35,12 @@
         <!---<el-divider direction="vertical"></el-divider>--->
         <swing/>
       </el-col>
-      <el-container>
-        <el-header >
-          <textrotation>
-          </textrotation>
-        </el-header>
-      </el-container>
+<!--      <el-container>-->
+<!--        <el-header >-->
+<!--          <textrotation>-->
+<!--          </textrotation>-->
+<!--        </el-header>-->
+<!--      </el-container>-->
       <router-view></router-view>
     </el-row>
   </div>
@@ -48,9 +48,9 @@
 
 <script>
 import swing from '../components/swing'
-import textrotation from '../components/TestRotation'
+// import textrotation from '../components/TestRotation'
 export default {
-  components: { swing, textrotation },
+  components: { swing },
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath)
