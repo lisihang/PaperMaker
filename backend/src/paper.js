@@ -32,7 +32,7 @@ gulp.task("default", gulp.series('watch'))
 
 var paper = 
 {
-    makePaper: function(title, ids, userid, res)
+    makePaper: function(ids, userid, res)
     {
         Question.findAll(
         {
@@ -49,7 +49,6 @@ var paper =
             Paper.create(
             {
                 user: userid,
-                title: title,
                 question: s
             }).then(function(result)
             {
@@ -63,7 +62,7 @@ var paper =
                     if (exists)
                         return pdfname;
                     var writeData = "";
-                    writeData += "### " + title + "\n\n";
+                    writeData += "### Paper No." + paperid.toString() + "\n\n";
                     writeData += "##### Made by PaperMaker\n\n";
                     writeData += "------\n\n";
                     for (var i in questions)
