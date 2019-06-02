@@ -2,7 +2,7 @@
 
   <div class="carousel">
     <div class="block">
-      <el-carousel :interval="4000" type="card" height="200px" >
+      <el-carousel :interval="3000" type="card" height="200px"  >
         <el-carousel-item v-for="pic in pics">
           <img :src= pic height="100%"/>
         </el-carousel-item>
@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
   .el-carousel__item h3 {
-    color: #475669;
+    /*color: #475669;*/
     font-size: 14px;
     opacity: 0.75;
     height: 200px;
@@ -50,11 +50,11 @@ export default {
   }
 
   .el-carousel-item {
-    background-color: #99a9bf;
+    /*background-color: #99a9bf;*/
     height: 200px;
   }
 
   .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
+    /*background-color: #d3dce6;*/
   }
 </style>
