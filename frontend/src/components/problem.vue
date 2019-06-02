@@ -45,7 +45,11 @@ export default {
         time: this.time }
       this.$store.commit('AddShoppingCart', _this.problem)
     },
+<<<<<<< HEAD
     addtocollections: function () {
+=======
+    addtoup: function () {
+>>>>>>> 99a767cade7d4524c50b54565abbd6bb1dc5c1d5
       var _this = this
       _this.problem = {
         content: this.content,
@@ -55,7 +59,13 @@ export default {
         type: this.type,
         hot: this.hot,
         time: this.time }
+<<<<<<< HEAD
       this.$store.commit('AddCollections', _this.problem)
+=======
+      console.log(JSON.parse(JSON.stringify((_this.problem))))
+      Bus.$emit('addtoup', _this.problem)
+      this.$store.commit('SetUphistory', _this.problem)
+>>>>>>> 99a767cade7d4524c50b54565abbd6bb1dc5c1d5
     }
   }
 

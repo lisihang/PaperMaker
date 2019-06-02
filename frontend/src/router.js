@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import SignIn from './views/SignIn.vue'
 import SignUp from './views/SignUp.vue'
+import hello from './views/hello.vue'
 import PaperMake from './views/PaperMake'
 import upload from './views/up-load'
 import Info from './views/Info.vue'
@@ -30,8 +31,8 @@ const router = new Router({
         },
         {
           path: '/',
-          name: 'signin',
-          component: SignIn
+          name: 'hello',
+          component: hello
         },
         {
           path: '/signin',

@@ -64,7 +64,7 @@
     <br>
     <el-button v-on:click="getpaper" style="width:30%;  margin-left: 20px" >
       一键组卷
-    </el-button>
+  </el-button>
   </el-container>
 
 </template>

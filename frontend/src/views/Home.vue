@@ -11,8 +11,13 @@
           text-color="#fff"
           active-text-color="#ffd04b"
           router>
+<<<<<<< HEAD
           <el-menu-item index="main">
             <template slot="title">首页</template>
+=======
+          <el-menu-item index="info">
+            <template slot="title"><i class="el-icon-info"></i>我的账户</template>
+>>>>>>> 99a767cade7d4524c50b54565abbd6bb1dc5c1d5
           </el-menu-item>
           <el-submenu index="paper">
             <template slot="title">
@@ -38,15 +43,24 @@
         <!---<el-divider direction="vertical"></el-divider>--->
         <swing/>
       </el-col>
+<<<<<<< HEAD
+=======
+<!--      <el-container>-->
+<!--        <el-header >-->
+<!--          <textrotation>-->
+<!--          </textrotation>-->
+<!--        </el-header>-->
+<!--      </el-container>-->
+>>>>>>> 99a767cade7d4524c50b54565abbd6bb1dc5c1d5
       <router-view></router-view>
     </el-row>
   </div>
 </template>
 <script>
 import swing from '../components/swing'
-import textrotation from '../components/TestRotation'
+// import textrotation from '../components/TestRotation'
 export default {
-  components: { swing, textrotation },
+  components: { swing },
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath)
