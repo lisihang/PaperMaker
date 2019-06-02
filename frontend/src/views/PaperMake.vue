@@ -74,7 +74,7 @@ export default {
   .el-main{
     /*margin-left: auto;*/
     margin: 1px;
-    background: whitesmoke;
+    /*background: whitesmoke;*/
   }
   .el-container{
     /*margin-left: auto;*/

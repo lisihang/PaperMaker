@@ -1,20 +1,18 @@
 <template>
   <div class="signin">
-    <el-container>
-      <el-header>
-      </el-header>
+    <el-container >
       <el-main>
-        <img src="../assets/logo.png">
+        <img src="../assets/logo1.png" height="400" width="400">
         <el-row type="flex" justify="center" :span="18">
           <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
-            <el-form-item label="用户名" prop="name">
+            <el-form-item label="用户名" prop="name" style="text-decoration-color: black">
               <el-input v-model="ruleForm.name" autocomplete="off"></el-input>
             </el-form-item>
-            <el-form-item label="密码" prop="pass">
+            <el-form-item label="密码" prop="pass" style="text-line-through-color: white">
               <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item>
-              <a @click="$router.push('/signup')"> 新用户？</a>
+              <a @click="$router.push('/signup')" style="text-decoration-color: black"> 新用户？</a>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
@@ -97,7 +95,7 @@ export default {
                     message: '登陆成功',
                     type: 'success'
                   })
-                  this.$router.push({ name: 'home' })
+                  this.$router.push({ name: 'main' })
                 } else {
                   this.$message(response.data.message)
                   this.$refs[formName].resetFields()
@@ -122,9 +120,6 @@ export default {
 
 <style scoped>
 .signin{
-  background-image: url(../assets/background.jpg);
-
-  height: 650px;
   background-position: center top;
   overflow: hidden;
   background-repeat: no-repeat;

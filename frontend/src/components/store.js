@@ -7,7 +7,8 @@ const state = {
   user: window.sessionStorage.getItem('user'),
   token: window.sessionStorage.getItem('token'),
   shoppingcart: [],
-  paper: ''
+  paper: '',
+  collections: []
 }
 const mutations = {
   SET_TOKEN: (state, data) => {
@@ -28,11 +29,13 @@ const mutations = {
   },
   AddShoppingCart (state, data) {
     state.shoppingcart.push(data)
-    console.log(state.shoppingcart)
   },
   SetPaper (state, data) {
     state.paper = data
-    console.log(state.paper)
+  },
+  AddCollections (state, data) {
+    state.collections.push(data)
+    console.log(state.collections)
   }
 }
 
