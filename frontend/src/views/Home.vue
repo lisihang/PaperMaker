@@ -7,13 +7,7 @@
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b"
           router>
-          <el-menu-item index="main">
-            <template slot="title">首页</template>
-          </el-menu-item>
           <el-menu-item index="info">
             <template slot="title"><i class="el-icon-info"></i>我的账户</template>
           </el-menu-item>
@@ -34,6 +28,9 @@
           <el-menu-item index="4">
             <template slot="title"><i class="el-icon-download"></i>下载题目</template>
           </el-menu-item>
+          <el-menu-item index="5">
+            <template slot="title"><i class="el-icon-search"></i>搜索</template>
+          </el-menu-item>
         </el-menu>
         <!---<el-divider direction="vertical"></el-divider>--->
         <swing/>
@@ -48,6 +45,7 @@
     </el-row>
   </div>
 </template>
+
 <script>
 import swing from '../components/swing'
 // import textrotation from '../components/TestRotation'
@@ -66,6 +64,7 @@ export default {
 
 <style scoped>
   .el-row {
+
     background-repeat: no-repeat;
     background-position: right;
     background-size: 75% 100%;
@@ -80,10 +79,9 @@ export default {
   .el-header, .el-footer {
     /*background-color: #B3C0D1;
     color: #333;*/
-    /*
     text-align: center;
     margin-top: 0px;
     margin-bottom: 20px;
-    line-height: 1px;*/
+    line-height: 1px;
   }
 </style>

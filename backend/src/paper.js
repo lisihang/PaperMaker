@@ -32,7 +32,7 @@ gulp.task("default", gulp.series('watch'))
 
 var paper = 
 {
-    makePaper: function(ids, userid, res)
+    makePaper: function(title, ids, userid, res)
     {
         Question.findAll(
         {
@@ -49,6 +49,7 @@ var paper =
             Paper.create(
             {
                 user: userid,
+                title: title,
                 question: s
             }).then(function(result)
             {

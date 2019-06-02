@@ -1,5 +1,8 @@
 <template>
   <div>
+    <h2>
+      组合试卷
+    </h2>
     <pre align="left" overflow="auto">
       {{paper}}
     </pre>
