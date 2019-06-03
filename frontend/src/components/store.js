@@ -8,7 +8,6 @@ const state = {
   token: window.sessionStorage.getItem('token'),
   shoppingcart: [],
   paper: '',
-  collections: [],
   uphistory: ''
 }
 const mutations = {
@@ -30,13 +29,10 @@ const mutations = {
   },
   AddShoppingCart (state, data) {
     state.shoppingcart.push(data)
+    console.log(state.shoppingcart)
   },
   SetPaper (state, data) {
     state.paper = data
-  },
-  AddCollections (state, data) {
-    state.collections.push(data)
-    console.log(state.collections)
     console.log(state.paper)
   },
   SetUphistory (state, data) {

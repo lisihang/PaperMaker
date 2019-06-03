@@ -4,12 +4,7 @@
     <el-table
       :data="problems"
       style="width: 100%"
-      @selection-change="handleSelectionChange"
       >
-      <el-table-column
-        type="selection"
-        width="55">
-      </el-table-column>
       <el-table-column type="expand">
         <template slot-scope="props">
           <el-form label-position="left" inline class="demo-table-expand">
@@ -54,15 +49,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <br>
-    <el-input
-      placeholder="请输入试卷名称"
-      v-model="title"
-      clearable
-      style="width: 30%; margin-left: 20px">
-    </el-input>
-    <br>
-    <el-button v-on:click="getpaper" style="width:30%;  margin-left: 20px" >
+    <el-button v-on:click="getpaper">
       一键组卷
   </el-button>
   </el-container>
@@ -82,9 +69,7 @@ export default {
         time: '2019',
         content: 'content',
         answer: 'answer'
-      }],
-      title: '',
-      selection: []
+      }]
     }
   },
   methods: {
@@ -94,8 +79,8 @@ export default {
     getpaper: function () {
       var _this = this
       var ids = []
-      for (var i = 0; i < _this.selection.length; i++) {
-        ids.push(_this.selection[i].id)
+      for (var i = 0; i < _this.problems.length; i++) {
+        ids.push(_this.problems[i].id)
       }
       axios({
         method: 'post',
@@ -104,31 +89,16 @@ export default {
           token: window.sessionStorage.getItem('token'),
           payload:
             {
-              'ids': ids,
-              'title': _this.title
+              'ids': ids
             }
         }
       })
         .then(function (response) {
+          console.log(response.data)
           _this.$store.commit('SetPaper', response.data)
-          _this.$message('组卷成功')
         }, function (error) {
-          this.$message(error)
+          console.log(error)
         })
-    },
-    toggleSelection (rows) {
-      if (rows) {
-        rows.forEach(row => {
-          this.$refs.multipleTable.toggleRowSelection(row)
-        })
-      } else {
-        this.$refs.multipleTable.clearSelection()
-      }
-    },
-    handleSelectionChange (val) {
-      this.multipleSelection = val
-      this.selection = val
-      console.log(val)
     }
   },
   computed: {

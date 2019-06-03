@@ -10,7 +10,6 @@ import Info from './views/Info.vue'
 import store from './components/store.js'
 import ShoppingCart from './views/ShoppingCart'
 import ComposePaper from './components/ComposePaper'
-import Main from './views/Main'
 
 Vue.use(Router)
 
@@ -22,12 +21,9 @@ const router = new Router({
       component: Home,
       children: [
         {
-          path: '/main',
-          name: 'main',
-          component: Main,
-          meta: {
-            requireAuth: true
-          }
+          path: '/',
+          name: 'hello',
+          component: hello
         },
         {
           path: '/signin',
@@ -81,6 +77,23 @@ const router = new Router({
         }
       ]
     }
+    /*
+    {
+      path: 'signin',
+      name: 'signin',
+      component: SignIn
+    },
+    {
+      path: 'signup',
+      name: 'signup',
+      component: SignUp
+    },
+    {
+      path: 'menu',
+      name: 'menu',
+      component: menu
+    }
+    */
   ]
 })
 

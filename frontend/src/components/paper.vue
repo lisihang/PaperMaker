@@ -29,6 +29,9 @@ export default {
   },
   methods: {
     showproblems: function (pram) {
+      console.log(pram.subject.toString())
+      console.log(pram)
+      console.log(window.sessionStorage.getItem('token'))
       var _this = this
       var subject = pram.subject.toString()
       var grade = pram.grade.toString()
@@ -49,6 +52,7 @@ export default {
       })
         .then(function (response) {
           _this.problems = response.data.payload
+          console.log(response.data.payload)
         }, function (error) {
           console.log(error)
         })
