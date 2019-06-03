@@ -26,7 +26,6 @@
 </template>
 <script>
 import axios from 'axios'
-
 export default {
   data: function () {
     var validatePass = (rule, value, callback) => {
