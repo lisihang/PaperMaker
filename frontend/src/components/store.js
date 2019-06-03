@@ -10,7 +10,7 @@ const state = {
   paper: '',
   collections: [],
   uphistory: '',
-  model: ''
+  model: 1
 }
 const mutations = {
   SET_TOKEN: (state, data) => {

@@ -22,14 +22,10 @@
             <el-menu-item-group>
               <el-menu-item index="papermake">浏览题库</el-menu-item>
               <el-menu-item index="shoppingcart">试题篮</el-menu-item>
-              <el-menu-item index="composepaper">组合试卷</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-menu-item index="upload">
             <template slot="title"><i class="el-icon-upload2"></i>上传题目</template>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <template slot="title"><i class="el-icon-download"></i>下载题目</template>
           </el-menu-item>
         </el-menu>
         <!---<el-divider direction="vertical"></el-divider>--->

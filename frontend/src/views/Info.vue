@@ -170,7 +170,7 @@ import store from '../components/store.js'
 export default {
   data () {
     return {
-      activeName: 'second',
+      activeName: 'first',
       tableData: [{
         id: '1',
         type: '选择题',
