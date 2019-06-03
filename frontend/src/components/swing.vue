@@ -14,10 +14,10 @@ export default {
   name: 'swing',
   data () {
     return {
-      width: 300,
-      height: 300,
+      width: 250,
+      height: 250,
       tagsNum: 20,
-      RADIUS: 120,
+      RADIUS: 100,
       speedX: 5 * Math.PI / 360,
       speedY: 5 * Math.PI / 360,
       tags: []
@@ -43,7 +43,7 @@ export default {
       tag.x = this.CX + this.RADIUS * Math.sin(a) * Math.cos(b)
       tag.y = this.CY + this.RADIUS * Math.sin(a) * Math.sin(b)
       tag.z = this.RADIUS * Math.cos(a)
-      tag.href = 'https://imgss.github.io'
+      tag.href = '/' + tag.text
       tags.push(tag)
     }
     this.tags = tags
@@ -82,7 +82,5 @@ export default {
       this.speedY = y * 0.005 > 0 ? Math.min(this.RADIUS * 0.0001, y * 0.005) : Math.max(-this.RADIUS * 0.0001, y * 0.005)
     }
   }
-
 }
-
 </script>

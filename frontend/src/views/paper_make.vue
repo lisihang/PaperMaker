@@ -16,7 +16,7 @@ import sort from '../components/sort.vue'
 import paper from '../components/paper.vue'
 import carousel from '../components/carousel'
 export default {
-  name: 'PaperMake',
+  name: 'paper_make',
   components: {
     choose,
     sort,
@@ -74,7 +74,7 @@ export default {
   .el-main{
     /*margin-left: auto;*/
     margin: 1px;
-    /*background: whitesmoke;*/
+    background: whitesmoke;
   }
   .el-container{
     /*margin-left: auto;*/
