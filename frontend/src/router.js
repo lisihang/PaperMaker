@@ -30,11 +30,6 @@ const router = new Router({
           }
         },
         {
-          path: '/',
-          name: 'hello',
-          component: hello
-        },
-        {
           path: '/signin',
           name: 'signin',
           component: SignIn
