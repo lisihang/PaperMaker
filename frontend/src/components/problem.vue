@@ -2,15 +2,27 @@
     <div >
       <pre align="left" width="40">{{content}}<br><br>{{answer}}</pre>
       <hr/>
-      <p id="other_prams">难度系数:0.3</p>
-      <el-button v-on:click="addtocart">
-        添加到购物车
-      </el-button>
+      <div style="float:left;text-align:left" >
+        <div style="float:left">
+          <p id="other_prams">使用次数:{{hot}}</p>
+        </div>
+        <div style="float:right;margin-left: 50px">
+          <el-button size="mini" align="left" v-on:click="addtocart">
+            <i class="el-icon-folder-add"></i>
+            加入试卷
+          </el-button>
+          <el-button size="mini" align="left" v-on:click="addtocollections">
+            <i class="el-icon-collection-tag"></i>
+            收藏
+          </el-button>
+        </div>
+
+      </div>
+
     </div>
 </template>
 
 <script>
-import Bus from '../bus.js'
 export default {
   name: 'Problem',
   props: ['content', 'answer', 'diff', 'id', 'type', 'hot', 'time'],
@@ -31,11 +43,9 @@ export default {
         type: this.type,
         hot: this.hot,
         time: this.time }
-      console.log(JSON.parse(JSON.stringify((_this.problem))))
-      Bus.$emit('addtocart', _this.problem)
       this.$store.commit('AddShoppingCart', _this.problem)
     },
-    addtoup: function () {
+    addtocollections: function () {
       var _this = this
       _this.problem = {
         content: this.content,
@@ -45,10 +55,25 @@ export default {
         type: this.type,
         hot: this.hot,
         time: this.time }
-      console.log(JSON.parse(JSON.stringify((_this.problem))))
-      Bus.$emit('addtoup', _this.problem)
-      this.$store.commit('SetUphistory', _this.problem)
+      this.$store.commit('AddCollections', _this.problem)
     }
+    /*
+      addtoup: function () {
+        var _this = this
+        _this.problem = {
+          content: this.content,
+          answer: this.answer,
+          diff: this.diff,
+          id: this.id,
+          type: this.type,
+          hot: this.hot,
+          time: this.time }
+        this.$store.commit('AddCollections', _this.problem)
+        console.log(JSON.parse(JSON.stringify((_this.problem))))
+        Bus.$emit('addtoup', _this.problem)
+        this.$store.commit('SetUphistory', _this.problem)
+    }
+    */
   }
 
 }
