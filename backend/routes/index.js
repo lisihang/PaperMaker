@@ -13,6 +13,8 @@ var paper = require('../src/paper');
 var Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
+var MD5 = require('js-md5');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.send('hello world')
@@ -35,10 +37,13 @@ router.post('/signup', bodyParser.json(), function(req, res, next)
     {
         if (result == null)
         {
+            var str = Math.random().toString(36).substr(2);
+            var password = MD5(req.body.password + str);
             User.create(
             {
                 username: req.body.username,
-                password: req.body.password
+                password: password,
+                str: str
             }).then(function(result)
             {
                 data['status'] = 'success';
@@ -75,15 +80,20 @@ router.post('/signin', bodyParser.json(), function(req, res, next)
     {
         where:
         {
-            username: req.body.username,
-            password: req.body.password
+            username: req.body.username
         }
     }).then(function(result)
     {
         if (result == null)
         {
             data['status'] = 'fail';
-            data['message'] = 'username or password wrong';
+            data['message'] = 'username not exists';
+            res.json(data);
+        }
+        else if (MD5(req.body.password + result.str) != result.password)
+        {
+            data['status'] = 'fail';
+            data['message'] = 'password wrong';
             res.json(data);
         }
         else
@@ -257,6 +267,47 @@ router.post('/paper', bodyParser.json(), function(req, res, next)
             var ids = req.body.payload.ids;
             var title = req.body.payload.title;
             paper.makePaper(title, ids, result.id, res);
+        }
+    }).catch(function(err)
+    {
+        data['status'] = 'fail';
+        data['message'] = err.message;
+        res.json(data);
+    });
+});
+
+/* 获取答案 */
+router.post('/answer', bodyParser.json(), function(req, res, next)
+{
+    var data = {};
+    data['status'] = '';
+    data['message'] = '';
+    data['payload'] = {};
+    if (req.body.payload.ids.length == 0)
+    {
+        data['status'] = 'fail';
+        data['message'] = 'no question ids';
+        res.json(data);
+    }
+    User.findOne(
+    {
+        where:
+        {
+            token: req.body.token
+        }
+    }).then(function(result)
+    {
+        if (result == null)
+        {
+            data['status'] = 'fail';
+            data['message'] = 'wrong token';
+            res.json(data);
+        }
+        else
+        {
+            var ids = req.body.payload.ids;
+            var title = req.body.payload.title;
+            paper.makeAnswer(title, ids, result.id, res);
         }
     }).catch(function(err)
     {
