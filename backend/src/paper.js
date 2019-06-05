@@ -50,9 +50,10 @@ var paper =
                     writeData += "------\n\n";
                     for (var i in questions)
                     {
+                        console.log(i);
                         if (i == 0 || questions[i].type != questions[i - 1].type)
                             writeData += "\n### " + questions[i].type + "\n\n";
-                        writeData += (i + 1).toString() + ". " + questions[i].content + "\n\n";
+                        writeData += (parseInt(i) + 1).toString() + ". " + questions[i].content + "\n\n";
                     }
                     fs.writeFile(mdname, writeData, {flag: 'a'}, function(err)
                     {
@@ -98,7 +99,7 @@ var paper =
                 {
                     if (i == 0 || questions[i].type != questions[i - 1].type)
                         writeData += "\n### " + questions[i].type + "\n\n";
-                    writeData += (i + 1).toString() + ". " + questions[i].answer + "\n\n";
+                    writeData += (parseInt(i) + 1).toString() + ". " + questions[i].answer + "\n\n";
                 }
                 fs.writeFile(mdname, writeData, {flag: 'a'}, function(err)
                 {
