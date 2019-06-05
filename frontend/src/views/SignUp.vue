@@ -1,9 +1,8 @@
 <template>
   <div class="signup">
     <el-container>
-      <el-header></el-header>
       <el-main>
-        <img src="../assets/logo.png">
+        <img src="../assets/logo1.png" height="400" width="400">
         <el-row type="flex" justify="center" :span="18">
           <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
             <el-form-item label="用户名" prop="name">
@@ -142,9 +141,6 @@ export default {
 <style>
 
   .signup{
-    background-image: url(../assets/background.jpg);
-
-    height: 650px;
     background-position: center top;
     overflow: hidden;
     background-repeat: no-repeat;
