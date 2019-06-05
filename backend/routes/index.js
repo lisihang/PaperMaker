@@ -248,32 +248,35 @@ router.post('/paper', bodyParser.json(), function(req, res, next)
         data['message'] = 'no question ids';
         res.json(data);
     }
-    User.findOne(
+    else
     {
-        where:
+        User.findOne(
         {
-            token: req.body.token
-        }
-    }).then(function(result)
-    {
-        if (result == null)
+            where:
+            {
+                token: req.body.token
+            }
+        }).then(function(result)
+        {
+            if (result == null)
+            {
+                data['status'] = 'fail';
+                data['message'] = 'wrong token';
+                res.json(data);
+            }
+            else
+            {
+                var ids = req.body.payload.ids;
+                var title = req.body.payload.title;
+                paper.makePaper(title, ids, result.id, res);
+            }
+        }).catch(function(err)
         {
             data['status'] = 'fail';
-            data['message'] = 'wrong token';
+            data['message'] = err.message;
             res.json(data);
-        }
-        else
-        {
-            var ids = req.body.payload.ids;
-            var title = req.body.payload.title;
-            paper.makePaper(title, ids, result.id, res);
-        }
-    }).catch(function(err)
-    {
-        data['status'] = 'fail';
-        data['message'] = err.message;
-        res.json(data);
-    });
+        });
+    }
 });
 
 /* 获取答案 */

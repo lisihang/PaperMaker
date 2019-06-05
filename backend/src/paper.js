@@ -83,7 +83,6 @@ var paper =
             for (var i in ids)
                 s += ids[i].toString() + " ";
 
-            var paperid = result.dataValues.id;
             var timestamp = (new Date()).getTime();
             var filename = userid.toString() + "_" + timestamp.toString() + "answer";
             var mdname = root + "cache/md/" + filename + ".md";
