@@ -141,106 +141,106 @@
 <script>
   import axios from 'axios'
 
-  export default {
-    name: 'mylabel',
-    data () {
-      return {
-        form1: {
-          stem: '',
-          optionA: '',
-          optionB: '',
-          optionC: '',
-          optionD: '',
-          answers: '',
-          analysis: ''
-        },
-        form2: {
-          stem2: '',
-          answers2: '',
-          analysis2: ''
-        },
-        radio1: 1,
-        radio2: 1,
-        radio3: 1,
-        radio4: 1,
-        radio5: 1,
-        subject: ['语文', '数学', '英语', '物理', '化学', '生物', '政治', '历史', '地理'],
-        grade: ['小学', '初中', '高中'],
-        type: ['选择题', '填空题', '计算题', '简答题', '作图题'],
-        difficulty: ['简单题', '中等题', '难题', '竞赛题'],
-        time: ['2019', '2018', '2017', '2016', '2015', '更早之前']
-      }
+export default {
+  name: 'mylabel',
+  data () {
+    return {
+      form1: {
+        stem: '',
+        optionA: '',
+        optionB: '',
+        optionC: '',
+        optionD: '',
+        answers: '',
+        analysis: ''
+      },
+      form2: {
+        stem2: '',
+        answers2: '',
+        analysis2: ''
+      },
+      radio1: 1,
+      radio2: 1,
+      radio3: 1,
+      radio4: 1,
+      radio5: 1,
+      subject: ['语文', '数学', '英语', '物理', '化学', '生物', '政治', '历史', '地理'],
+      grade: ['小学', '初中', '高中'],
+      type: ['选择题', '填空题', '计算题', '简答题', '作图题'],
+      difficulty: ['简单题', '中等题', '难题', '竞赛题'],
+      time: ['2019', '2018', '2017', '2016', '2015', '更早之前']
+    }
+  },
+  methods: {
+    whichform: function () {
+      var _this = this
+      this.$store.commit('SetModel', _this.radio3)
+      _this.sendWhich()
     },
-    methods: {
-      whichform: function () {
-        var _this = this
-        this.$store.commit('SetModel', _this.radio3)
-        _this.sendWhich()
-      },
-      btnClick: function () {
-        var model1 = this.$store.state.model
-        var _this = this
-        // 选择题类型的form数据
-        var tmp1 = _this.form1.stem
-        var tmp2 = 'A.' + _this.form1.optionA
-        var tmp3 = 'B.' + _this.form1.optionB
-        var tmp4 = 'C.' + _this.form1.optionC
-        var tmp5 = 'D.' + _this.form1.optionD
-        var tmp6 = '答案：' + _this.form1.answers
-        var tmp7 = '解析：' + _this.form1.analysis
-        //  其他题类型的form数据
-        var tmp8 = _this.form2.stem2
-        var tmp9 = '答案：' + _this.form2.answers2
-        var tmp10 = '解析：' + _this.form2.analysis2
-        if (model1 === 1) {
-          var cont = tmp1 + '\n' + tmp2 + '\n' + tmp3 + '\n' + tmp4 + '\n' + tmp5
-          var ans = tmp6 + '\n' + tmp7
-        } else {
-          cont = tmp8
-          ans = tmp9 + '\n' + tmp10
+    btnClick: function () {
+      var model1 = this.$store.state.model
+      var _this = this
+      // 选择题类型的form数据
+      var tmp1 = _this.form1.stem
+      var tmp2 = 'A.' + _this.form1.optionA
+      var tmp3 = 'B.' + _this.form1.optionB
+      var tmp4 = 'C.' + _this.form1.optionC
+      var tmp5 = 'D.' + _this.form1.optionD
+      var tmp6 = '答案：' + _this.form1.answers
+      var tmp7 = '解析：' + _this.form1.analysis
+      //  其他题类型的form数据
+      var tmp8 = _this.form2.stem2
+      var tmp9 = '答案：' + _this.form2.answers2
+      var tmp10 = '解析：' + _this.form2.analysis2
+      if (model1 === 1) {
+        var cont = tmp1 + '\n' + tmp2 + '\n' + tmp3 + '\n' + tmp4 + '\n' + tmp5
+        var ans = tmp6 + '\n' + tmp7
+      } else {
+        cont = tmp8
+        ans = tmp9 + '\n' + tmp10
+      }
+      var _subject = _this.subject[_this.radio1 - 1]
+      var _grade = _this.grade[_this.radio2 - 1]
+      var _type = _this.type[_this.radio3 - 1]
+      var _difficulty = _this.difficulty[_this.radio4 - 1]
+      var _time = _this.time[_this.radio5 - 1]
+      axios({
+        method: 'post',
+        url: '/question',
+        data: {
+          token: window.sessionStorage.getItem('token'),
+          payload:
+            {
+              'content': cont,
+              'answer': ans,
+              'subject': _subject,
+              'grade': _grade,
+              'type': _type,
+              'difficulty': _difficulty,
+              'time': _time
+            }
         }
-        var _subject = _this.subject[_this.radio1 - 1]
-        var _grade = _this.grade[_this.radio2 - 1]
-        var _type = _this.type[_this.radio3 - 1]
-        var _difficulty = _this.difficulty[_this.radio4 - 1]
-        var _time = _this.time[_this.radio5 - 1]
-        axios({
-          method: 'post',
-          url: '/question',
-          data: {
-            token: 'gqu1736nrvb',
-            payload:
-              {
-                'content': cont,
-                'answer': ans,
-                'subject': _subject,
-                'grade': _grade,
-                'type': _type,
-                'difficulty': _difficulty,
-                'time': _time
-              }
-          }
+      })
+        .then(function (response) {
+          console.log(response)
+          alert('上传成功')
+        }, function (error) {
+          console.log(error)
+          alert('上传失败，请重新上传')
         })
-          .then(function (response) {
-            console.log(response)
-            alert('上传成功')
-          }, function (error) {
-            console.log(error)
-            alert('上传失败，请重新上传')
-          })
-      },
-      sendWhich () {
-        var _model = this.$store.state.model
-        if (_model <= 1) {
-          document.getElementById('eleForm').style.display = ''
-          document.getElementById('otherForm').style.display = 'none'
-        } else {
-          document.getElementById('eleForm').style.display = 'none'
-          document.getElementById('otherForm').style.display = ''
-        }
+    },
+    sendWhich () {
+      var _model = this.$store.state.model
+      if (_model <= 1) {
+        document.getElementById('eleForm').style.display = ''
+        document.getElementById('otherForm').style.display = 'none'
+      } else {
+        document.getElementById('eleForm').style.display = 'none'
+        document.getElementById('otherForm').style.display = ''
       }
     }
   }
+}
 </script>
 
 <style scoped>

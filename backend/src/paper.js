@@ -50,9 +50,29 @@ var paper =
                     writeData += "------\n\n";
                     for (var i in questions)
                     {
+                        if (questions[i].type == "选择题")
+                            questions[i].rank = 1;
+                        else if (questions[i].type == "填空题")
+                            questions[i].rank = 2;
+                        else if (questions[i].type == "简答题")
+                            questions[i].rank = 3;
+                        else
+                            questions[i].rank = 4;
+                    }
+                    questions.sort((a, b)=>
+                    {
+                        if (a.rank != b.rank)
+                            return a.rank - b.rank;
+                        else if (a.type != b.type)
+                            return a.type.localeCompare(b.type);
+                        else
+                            return a.id - b.id;
+                    });
+                    for (var i in questions)
+                    {
                         if (i == 0 || questions[i].type != questions[i - 1].type)
                             writeData += "\n### " + questions[i].type + "\n\n";
-                        writeData += (i + 1).toString() + ". " + questions[i].content + "\n\n";
+                        writeData += (parseInt(i) + 1).toString() + ". " + questions[i].content + "\n\n";
                     }
                     fs.writeFile(mdname, writeData, {flag: 'a'}, function(err)
                     {
@@ -96,9 +116,29 @@ var paper =
                 writeData += "------\n\n";
                 for (var i in questions)
                 {
+                    if (questions[i].type == "选择题")
+                        questions[i].rank = 1;
+                    else if (questions[i].type == "填空题")
+                        questions[i].rank = 2;
+                    else if (questions[i].type == "简答题")
+                        questions[i].rank = 3;
+                    else
+                        questions[i].rank = 4;
+                }
+                questions.sort((a, b)=>
+                {
+                    if (a.rank != b.rank)
+                        return a.rank - b.rank;
+                    else if (a.type != b.type)
+                        return a.type.localeCompare(b.type);
+                    else
+                        return a.id - b.id;
+                });
+                for (var i in questions)
+                {
                     if (i == 0 || questions[i].type != questions[i - 1].type)
                         writeData += "\n### " + questions[i].type + "\n\n";
-                    writeData += (i + 1).toString() + ". " + questions[i].answer + "\n\n";
+                    writeData += (parseInt(i) + 1).toString() + ". " + questions[i].answer + "\n\n";
                 }
                 fs.writeFile(mdname, writeData, {flag: 'a'}, function(err)
                 {

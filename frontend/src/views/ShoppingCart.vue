@@ -64,7 +64,11 @@
     <br>
     <el-button v-on:click="getpaper" style="width:30%;  margin-left: 20px" >
       一键组卷
-  </el-button>
+    </el-button>
+    <br>
+    <el-button v-on:click="getanswer" style="width:30%;  margin-left: 20px" >
+      获取配套答案
+    </el-button>
   </el-container>
 
 </template>
@@ -97,6 +101,7 @@ export default {
       for (var i = 0; i < _this.selection.length; i++) {
         ids.push(_this.selection[i].id)
       }
+      console.log('getpaper')
       axios({
         method: 'post',
         url: '/paper',
@@ -121,13 +126,52 @@ export default {
           var downloadElement = document.createElement('a')
           var href = window.URL.createObjectURL(blob)// 创建下载的链接
           downloadElement.href = href
-          downloadElement.download = 'paper1' + '.pdf' // 下载后文件名
+          downloadElement.download = 'paper' + '.pdf' // 下载后文件名
           document.body.appendChild(downloadElement)
           downloadElement.click()// 点击下载
           document.body.removeChild(downloadElement) // 下载完成移除元素
           window.URL.revokeObjectURL(href) // 释放掉blob对象
         }, function (error) {
-          this.$message(error)
+          _this.$message(error)
+        })
+    },
+    getanswer: function () {
+      var _this = this
+      var ids = []
+      for (var i = 0; i < _this.selection.length; i++) {
+        ids.push(_this.selection[i].id)
+      }
+      axios({
+        method: 'post',
+        url: '/answer',
+        responseType: 'arraybuffer',
+        data: {
+          token: window.sessionStorage.getItem('token'),
+          payload:
+            {
+              'ids': ids,
+              'title': _this.title
+            }
+        }
+      })
+        .then(function (response) {
+          _this.$store.commit('SetPaper', response.data)
+          _this.$message('答案获取成功')
+          let blob = new Blob([response.data], { type: 'application/pdf;charset=utf-8' })
+          /*
+          let objectUrl = URL.createObjectURL(blob)
+          window.location.href = objectUrl
+          */
+          var downloadElement = document.createElement('a')
+          var href = window.URL.createObjectURL(blob)// 创建下载的链接
+          downloadElement.href = href
+          downloadElement.download = 'answer' + '.pdf' // 下载后文件名
+          document.body.appendChild(downloadElement)
+          downloadElement.click()// 点击下载
+          document.body.removeChild(downloadElement) // 下载完成移除元素
+          window.URL.revokeObjectURL(href) // 释放掉blob对象
+        }, function (error) {
+          _this.$message(error)
         })
     },
     toggleSelection (rows) {
